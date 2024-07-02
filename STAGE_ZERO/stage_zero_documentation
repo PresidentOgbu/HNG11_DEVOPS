@@ -1,0 +1,125 @@
+## STATIC WEBSITE DEPLOYMENT 
+
+### Introduction:
+
+__In this stage, you'll step into the shoes of a DevOps engineer and deploy a static website onto a cloud platform.__
+
+__Cloud Platform: Choose a cloud platform of your preference (AWS EC2, Azure, etc) to deploy your website.__
+
+__Web Server: Select a web server software like NGINX or Apache to serve your static website content.__
+
+__Website Preparation: Ensure your static website files (HTML, CSS, Javascript) are ready for deployment.__
+
+__Server Configuration: Configure the chosen web server (NGINX or Apache) on your cloud instance to serve your website content.__
+
+## Prerequisites
+
+__1.__ EC2 Instance of t3.micro type and Ubuntu 24.04 LTS (HVM) was launched in the eu-north-1 region using the AWS console.
+t3.micro was used because t2.micro was not available in the region.
+
+<img src = ./images/ec2-details1.png>
+
+<img src = ./images/ec2-details2.png>
+
+
+__2.__ Created SSH key pair named __stagee_one__ to access the instance on port 22
+
+__3.__ The security group was configured with the following inbound rules:
+
+- Allow traffic on port 80 (HTTP) with source from anywhere on the internet.
+- Allow traffic on port 443 (HTTPS) with source from anywhere on the internet.
+- Allow traffic on port 22 (SSH) with source from any IP address. This is opened by default.
+
+![alt text](images/Security.png)
+
+
+__4.__ The default VPC and Subnet was used for the networking configuration.
+
+<!-- <img src = ./images/networking.png> -->
+![alt text](images/Networking.png)
+
+
+__5.__ The private ssh key that got downloaded was located, permission was changed for the private key file and then used to connect to the instance by running
+```
+chmod 400 my-key-pair.pem
+```
+```
+ssh -i "my-key-pair.pem" ubuntu@51.20.191.126.eu-north-1.compute.amazonaws.com
+```
+Where __username=ubuntu__ and __public ip address=51.20.191.126__
+
+![Connect to Instance](<images/Connect-to-instance.png>)
+
+
+
+## Install Apache and Update the Html File
+
+__1.__ __Update and upgrade list of packages in package manager__
+```
+sudo apt update
+sudo apt upgrade -y
+```
+
+![Update Packages](images/Update_Packages.png)
+![Upgrade Packages](images/Upgrade-Packages.png)
+
+__2.__ __Run apache2 package installation__
+```
+sudo apt install apache2 -y
+```
+![Install Apache](./images/install-apache.png)
+
+__3.__ __Enable and verify that apache is running on as a service on the OS.__
+```
+sudo systemctl enable apache2
+sudo systemctl status apache2
+```
+Apache2 is correctly installed
+
+![Apache Status](images/Apache-status.png)
+![Apache Status](images/enable-apache.png)
+
+__4.__ __The server is running and can be accessed locally in the ubuntu shell by running the command below:__
+
+```
+curl http://localhost:80
+OR
+curl http://127.0.0.1:80
+```
+
+![Local URL](images/Local-Url.png)
+
+__5.__ __Change the ownership shit__
+
+![alt text](<images/Ownership-rule.png>)
+
+If this code is not ran, it will be difficult to edit the apache index.html file.
+
+__6.__ __Assign the directory ownership with $USER environment variable which references the current system user.__
+
+```
+cd /var/www/html
+```
+
+![alt text](<images/html-folder.png>)
+
+
+__7.__ __use nano index.html to get into the html file and edit__
+
+![alt text](<images/nano-html.png>)
+
+
+
+__8.__ __Replace the HTML code in the Apache index file with the Html code of the static website, save and exit the editor__
+
+![alt text](<images/html-file.png>)
+
+
+
+__9.__ __Put the public IP address on the browser and it will display the webpage__
+```
+http://51.20.191.126
+```
+![alt text](<images/final_webpage_view.png>)
+
+This shows that the website is correctly installed and it is accessible through the ip address 
