@@ -89,14 +89,14 @@ curl http://127.0.0.1:80
 
 ![Local URL](images/Local-Url.png)
 
-__5.__ __Change the ownership shit__
+
+__5.__ __Assign the directory ownership with $USER environment variable which references the current system user.__
 
 ![alt text](<images/Ownership-rule.png>)
 
-If this code is not ran, it will be difficult to edit the apache index.html file.
+If this command is not ran, it will be difficult to edit the apache's index.html file.
 
-__6.__ __Assign the directory ownership with $USER environment variable which references the current system user.__
-
+__6.__ __Access the html folder using this command__
 ```
 cd /var/www/html
 ```
@@ -104,7 +104,7 @@ cd /var/www/html
 ![alt text](<images/html-folder.png>)
 
 
-__7.__ __use nano index.html to get into the html file and edit__
+__7.__ __Using the nano editor, access the index.html file.__
 
 ![alt text](<images/nano-html.png>)
 
