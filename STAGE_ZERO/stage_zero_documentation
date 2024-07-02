@@ -35,7 +35,6 @@ __3.__ The security group was configured with the following inbound rules:
 
 __4.__ The default VPC and Subnet was used for the networking configuration.
 
-<!-- <img src = ./images/networking.png> -->
 ![alt text](images/Networking.png)
 
 
