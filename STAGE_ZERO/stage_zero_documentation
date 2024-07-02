@@ -2,15 +2,15 @@
 
 ### Introduction:
 
-__In this stage, you'll step into the shoes of a DevOps engineer and deploy a static website onto a cloud platform.__
+__In this stage, I stepped into the shoes of a DevOps engineer and deployed a static website onto a cloud platform.__
 
-__Cloud Platform: Choose a cloud platform of your preference (AWS EC2, Azure, etc) to deploy your website.__
+__Cloud Platform: I Chose a cloud platform of my preference (AWS EC2) to deploy my static website.__
 
-__Web Server: Select a web server software like NGINX or Apache to serve your static website content.__
+__Web Server: I Selected a web server software Apache to serve my static website content.__
 
-__Website Preparation: Ensure your static website files (HTML, CSS, Javascript) are ready for deployment.__
+__Website Preparation: I Ensured that the static website files (HTML, CSS, Javascript) are ready for deployment.__
 
-__Server Configuration: Configure the chosen web server (NGINX or Apache) on your cloud instance to serve your website content.__
+__Server Configuration:I  Configured the chosen web server (Apache) on your my cloud instance to serve the website content.__
 
 ## Prerequisites
 
